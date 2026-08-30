@@ -1,33 +1,34 @@
 # YYYY-MM-DD — [title]
 
 <!--
-Copy this to cases/YYYY-MM-DD.md. Keep all seven sections.
-Write the verdict before checking ground truth.
-Describe the context in the file itself ("a Windows host ran an encoded PowerShell command"),
-don't link to or assume anything outside this repo.
+Copy this to cases/YYYY-MM-DD.md and keep all seven sections.
+I write the verdict before checking ground truth.
+Each case should stand on its own. Describe the context in the file
+("a Windows host ran an encoded PowerShell command") rather than linking to
+or assuming anything outside this repo.
 -->
 
 ## The question
-<!-- What you're trying to figure out. "Did this brute force succeed and as who?" not "investigate the alert." -->
+<!-- What I'm trying to figure out. "Did this brute force succeed, and as who?" rather than "investigate the alert." -->
 
 ## Indicator / subject
-<!-- The alert(s), host, and time range you started from. -->
+<!-- The alert, host, and time range I started from. -->
 
 ## What I did (pivots/tools, in order)
-<!-- Alert -> raw log -> endpoint -> pcap, etc. The order you actually looked. -->
+<!-- The steps in the order I actually took them, e.g. alert, raw log, endpoint, pcap. -->
 
 ## What I found
-<!-- Timeline and evidence. Quote the actual log line. -->
+<!-- The reconstructed timeline and the evidence behind it. Quote the actual log lines. -->
 
 ## Verdict & confidence
-<!-- What happened and how sure you are. "Inconclusive because X" is fine. -->
+<!-- What happened and how sure I am. "Inconclusive because X" is a valid verdict. -->
 
 ## One thing I learned
-<!-- A field you didn't know, a detection gap, a pivot that worked. -->
+<!-- A field I didn't know, a detection gap, or a pivot worth remembering. -->
 
 ## Tomorrow's first move
-<!-- What to try next. -->
+<!-- Where to pick up next. -->
 
 ---
 ## Detection (optional)
-<!-- A rule for this activity and proof it fires. -->
+<!-- A rule written against this activity, and proof that it fires. -->
