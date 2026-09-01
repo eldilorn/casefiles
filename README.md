@@ -1,23 +1,40 @@
-# Case Files
+# casefiles
 
-This repo tracks the daily security investigations I do in my homelab. Each day I pick one alert or finding, investigate it, and write up a case file covering the indicators, the steps I took, the evidence I found, and my conclusion. The point is to build a record I can go back to and learn from.
+One security investigation a day, written up and pushed. This repo is the wall.
 
-Every 30 days or so I'll write a longer post summarizing what the cases added up to.
+## What this is
 
-Everything here comes from my own lab. Nothing is from an employer or any system I don't own.
+Every morning before work I investigate one thing and write it up as a dated markdown file in `cases/`. Each file is a self-contained case: the question I started with, the pivots I made in order, what I found, and a verdict with a confidence level. Then I commit and push. That is the whole practice.
 
-## Case file format
+The investigations run against a homelab I own and control. I build an attack in my own range, monitor it with Wazuh, and then investigate the telemetry cold, the way I would on a shift: attack, telemetry, detection, investigation, verdict. Scenarios are randomized and staged ahead of time so I am not narrating an answer I already know. When a case ends in a working detection rule or hunting query, it goes in the file too.
 
-Each case uses the same seven sections:
+Everything here is generalized. Hosts, accounts, and addresses are lab assets. Raw captures, credentials, and internal detections from anywhere I work never appear here.
 
-- **The question** - what I'm trying to figure out
-- **Indicator / subject** - the alert, host, and time range I started from
-- **What I did** - the pivots and tools, in the order I used them
-- **What I found** - the reconstructed timeline and the evidence behind it
-- **Verdict & confidence** - what happened and how sure I am
-- **One thing I learned** - a field, a gap, or a pivot worth remembering
-- **Tomorrow's first move** - where to pick up next
+## How to read a case
 
-Some cases also include a detection rule written against the activity investigated.
+Every case uses the same seven headings, in the same order. `cases/TEMPLATE.md` is the canonical copy.
 
-The blank template is in `cases/TEMPLATE.md`.
+1. **The question.** What was actually unresolved at the start.
+2. **Indicator / subject.** The alert, artifact, or host that kicked it off.
+3. **What I did.** Pivots and tools, in the order I ran them, including dead ends.
+4. **What I found.** The evidence, stated plainly.
+5. **Verdict and confidence.** The call, and how sure I am.
+6. **One thing I learned.** A single takeaway.
+7. **Tomorrow's first move.** Where the next session starts.
+
+Some cases end with an optional **Detection** section: a tuned Wazuh or Sigma rule, or a hunting query, tested against the attack that produced the telemetry.
+
+Short files are normal. The floor is five sentences and fifteen minutes, the ceiling is forty-five minutes, and "inconclusive, ran out of time, next pivot would be X" is a complete case. A verdict I could not reach from the logs alone is still a finding, because it names a blind spot.
+
+## Cadence
+
+- One case file per day, committed and pushed.
+- Every 30 cases, a roll-up: patterns, the most interesting case, how the process changed, and what the detections I shipped would catch in production.
+
+## What is here
+
+- `cases/` holds the daily case files, one per date.
+- `cases/TEMPLATE.md` is the template every case follows.
+- This README.
+
+Nothing else. The write-ups are mine, written by hand, every day.
